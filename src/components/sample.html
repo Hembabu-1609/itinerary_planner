@@ -1,0 +1,83 @@
+<div className="flex flex-col items-center my-10">
+    <div ref={pdfRef} className="bg-white shadow-lg rounded-2xl p-8 w-[800px]">
+        {/* Gradient Header */}
+        <div className="bg-gradient-to-r from-violetPrimary to-violetLight text-white rounded-t-2xl py-6 text-center">
+            <h1 className="text-2xl font-bold">{data.tripTitle}</h1>
+            <p className="text-sm">{data.duration} | {data.travelers} Travelers</p>
+        </div>
+
+        {/* Days Section */}
+        {data.days.map((day, index) => (
+        <div key={index} className="border-l-4 border-violetPrimary pl-4 mt-6">
+            <h2 className="font-semibold text-violetPrimary mb-2 text-lg">
+                Day {index + 1}: {day.city}
+            </h2>
+            <div className="text-gray-700">
+                <p><strong>Morning:</strong> {day.morning}</p>
+                <p><strong>Afternoon:</strong> {day.afternoon}</p>
+                <p><strong>Evening:</strong> {day.evening}</p>
+                {day.transport && <p><strong>Transport:</strong> {day.transport}</p>}
+            </div>
+        </div>
+        ))}
+
+        {/* Important Notes */}
+        <div className="mt-10">
+            <h3 className="bg-violetPrimary text-white text-center font-semibold py-2 rounded-t-lg">Important Notes</h3>
+            <ul className="bg-violetLight/20 p-4 text-gray-700 text-sm">
+                {data.notes.map((note, i) => (
+                <li key={i} className="my-1">• {note}</li>
+                ))}
+            </ul>
+        </div>
+
+        {/* Payment Plan */}
+        <div className="mt-10">
+            <h3 className="bg-violetPrimary text-white text-center font-semibold py-2 rounded-t-lg">Payment Plan</h3>
+            <table className="w-full text-sm text-left border">
+                <thead className="bg-violetLight text-white">
+                    <tr>
+                        <th className="p-2">Installment</th>
+                        <th className="p-2">Amount</th>
+                        <th className="p-2">Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.payment.map((item, i) => (
+                    <tr key={i} className="border-b text-gray-700">
+                        <td className="p-2">{item.installment}</td>
+                        <td className="p-2">{item.amount}</td>
+                        <td className="p-2">{item.due}</td>
+                    </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+
+        {/* Visa Details */}
+        <div className="mt-10">
+            <h3 className="bg-violetPrimary text-white text-center font-semibold py-2 rounded-t-lg">Visa Details</h3>
+            <div className="border p-4 text-sm text-gray-700 grid grid-cols-3">
+                <p><strong>Visa Type:</strong> {data.visa.type}</p>
+                <p><strong>Validity:</strong> {data.visa.validity}</p>
+                <p><strong>Processing:</strong> {data.visa.processing}</p>
+            </div>
+        </div>
+
+        {/* Footer */}
+        <div className="text-center mt-10">
+            <p className="font-bold text-violetPrimary text-lg">PLAN. PACK. GO!</p>
+            <button className="bg-violetPrimary text-white px-8 py-3 rounded-lg mt-2">Book Now</button>
+        </div>
+
+        <footer className="text-xs text-center mt-10 text-gray-500 border-t pt-2">
+            <p>Vigovia Tech Pvt. Ltd | Karnataka, India</p>
+            <p>Email: example@vigovia.com | CIN: U79110KA2024PTC191890</p>
+        </footer>
+    </div>
+
+    <button onClick={handleDownload}
+        className="mt-6 bg-gradient-to-r from-violetPrimary to-violetLight text-white px-6 py-3 rounded-lg">
+        Download PDF
+    </button>
+</div>
