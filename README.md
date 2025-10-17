@@ -1,4 +1,55 @@
-# Getting Started with Create React App
+# Tour Planner & PDF Generator
+
+A React application for creating detailed travel itineraries with PDF export functionality. Built with React, Tailwind CSS, and modern JavaScript.
+
+## Features
+
+### 1. Trip Overview
+- Customer name and destination input
+- Duration and number of travelers
+- Total trip cost calculation
+
+### 2. Day-by-Day Itinerary
+- Add multiple days to the itinerary
+- For each day:
+  - Day title and date
+  - City/location
+  - Morning activities
+  - Afternoon activities
+  - Evening activities
+  - Optional image upload
+
+### 3. Hotel Bookings
+- Centralized hotel management
+- For each hotel:
+  - Hotel name
+  - City
+  - Check-in and check-out dates
+  - Number of nights
+- All hotel bookings displayed in a table format
+
+### 4. Flight Details
+- Multiple flight entries
+- For each flight:
+  - Date
+  - Airline and flight number
+  - Origin and destination
+  - Displayed in an easy-to-read format
+
+### 5. Payment Plan
+- Total amount display
+- Multiple installment support
+- For each installment:
+  - Amount
+  - Due date
+  - Payment status
+
+### 6. Additional Features
+- Important notes section
+- Company details in footer
+- Professional PDF export with proper formatting
+
+## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -57,14 +108,90 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+tour_planner/
+├── src/
+│   ├── components/
+│   │   ├── DayForm.js         # Day details input form
+│   │   ├── ItineraryForm.js   # Main form component
+│   │   ├── PdfExporter.js     # PDF generation logic
+│   │   └── PdfPreview.js      # PDF preview component
+│   ├── App.js                 # Main application component
+│   └── index.js              # Application entry point
+├── public/                   # Static assets
+└── package.json             # Project dependencies
+```
 
-### Deployment
+## Technical Details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Components
 
-### `npm run build` fails to minify
+#### 1. DayForm.js
+- Handles individual day entries
+- Morning, afternoon, and evening activities
+- Date and city inputs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### 2. ItineraryForm.js
+- Main form component
+- Manages all form sections:
+  - Trip overview
+  - Hotel bookings
+  - Flight details
+  - Payment plan
+  - Important notes
+
+#### 3. PdfExporter.js
+- PDF generation logic using html2canvas and jsPDF
+- Proper scaling and formatting
+- High-quality output
+
+#### 4. PdfPreview.js
+- Live preview of the PDF
+- Matches exact PDF output
+- Professional layout with branding
+
+### Styling
+- Tailwind CSS for responsive design
+- Purple-based color scheme
+- Professional typography
+- Modern UI components
+
+### Form Management
+- Centralized state in App.js
+- Proper validation
+- Efficient updates
+
+### PDF Generation Features
+- Company branding
+- Structured layout
+- Tables for flights and hotels
+- Payment details
+- Company footer
+
+## Development Notes
+
+### Recent Changes
+- Moved hotel details from day cards to centralized hotel bookings
+- Added proper date input labels
+- Improved PDF preview styling
+- Enhanced form validation
+- Added flight details section
+- Implemented payment plan feature
+
+### Known Issues
+- Image upload feature is currently commented out
+- Some TypeScript warnings from dependencies (can be ignored)
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+## License
+
+This project is licensed under the MIT License.
