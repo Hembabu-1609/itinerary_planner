@@ -2,8 +2,8 @@ import React, { forwardRef } from "react";
 
 const PdfPreview = forwardRef(({ itinerary }, ref) => (
   <div ref={ref} className="bg-white shadow-lg rounded-2xl p-8 w-[800px]">
-    <div className="flex justify-between items-center mb-6">
-      <img src="./tour_planner/public/logo.jpg" alt="Vigovia" className="h-8" />
+    <div className="flex justify-center items-center mb-6">
+      <img src="/logo.jpg" alt="Vigovia" className="h-12" />
     </div>
     <div className="bg-gradient-to-r from-blue-400 to-purple-500 text-white rounded-2xl py-8 px-6 mb-8 text-center">
       <h1 className="text-3xl font-bold mb-2">Hi, {itinerary.name}!</h1>
@@ -19,7 +19,6 @@ const PdfPreview = forwardRef(({ itinerary }, ref) => (
     </div>
     {itinerary.days.map((day, index) => (
       <div key={index} className="flex gap-6 mb-8">
-        {/* Day Number */}
         <div className="w-24">
           <div className="bg-purple-900 text-white p-4 rounded-lg text-center h-full flex flex-col justify-center">
             <span className="text-sm">Day</span>
